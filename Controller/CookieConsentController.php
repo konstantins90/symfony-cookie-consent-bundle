@@ -58,11 +58,6 @@ class CookieConsentController
     private $translator;
 
     /**
-     * @var bool
-     */
-    private $cookieConsentSimplified;
-
-    /**
      * @var string|null
      */
     private $formAction;
@@ -75,7 +70,6 @@ class CookieConsentController
         string $cookieConsentTheme,
         string $cookieConsentPosition,
         TranslatorInterface $translator,
-        bool $cookieConsentSimplified = false,
         string $formAction = null
     ) {
         $this->twigEnvironment         = $twigEnvironment;
@@ -85,7 +79,6 @@ class CookieConsentController
         $this->cookieConsentTheme      = $cookieConsentTheme;
         $this->cookieConsentPosition   = $cookieConsentPosition;
         $this->translator              = $translator;
-        $this->cookieConsentSimplified = $cookieConsentSimplified;
         $this->formAction              = $formAction;
     }
 
@@ -103,7 +96,6 @@ class CookieConsentController
                 'form'       => $this->createCookieConsentForm()->createView(),
                 'theme'      => $this->cookieConsentTheme,
                 'position'   => $this->cookieConsentPosition,
-                'simplified' => $this->cookieConsentSimplified,
             ])
         );
 
