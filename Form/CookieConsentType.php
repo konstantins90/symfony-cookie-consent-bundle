@@ -11,7 +11,7 @@ namespace FatalNetwork\CookieConsentBundle\Form;
 
 use FatalNetwork\CookieConsentBundle\Cookie\CookieChecker;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -51,13 +51,11 @@ class CookieConsentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         foreach ($this->cookieCategories as $category) {
-            $builder->add($category, ChoiceType::class, [
-                'expanded' => true,
-                'multiple' => false,
-                'data'     => $this->cookieChecker->isCategoryAllowedByUser($category) ? 'true' : 'false',
-                'choices'  => [
-                    ['fn_cookie_consent.yes' => 'true'],
-                    ['fn_cookie_consent.no' => 'false'],
+            $builder->add($category, CheckboxType::class, [
+                'label' => false,
+                'data' => $this->cookieChecker->isCategoryAllowedByUser($category) ? true : false,
+                'row_attr' => [
+                    'class' => 'form-switch',
                 ],
             ]);
         }
@@ -70,7 +68,14 @@ class CookieConsentType extends AbstractType
             $data = $event->getData();
 
             foreach ($this->cookieCategories as $category) {
-                $data[$category] = isset($data['use_all_cookies']) ? 'true' : 'false';
+
+                if (isset($data['use_all_cookies'])) {
+                    $data[$category] = true;
+                } elseif (isset($data['use_only_functional_cookies'])) {
+                    $data[$category] = false;
+                } else {
+                    $data[$category] = isset($data[$category]) ? $data[$category] : false;
+                }
             }
 
             $event->setData($data);

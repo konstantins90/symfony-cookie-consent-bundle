@@ -49,9 +49,9 @@ class CookieConsentLog
     protected $cookieName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="boolean")
      *
-     * @var string
+     * @var bool
      */
     protected $cookieValue;
 
@@ -103,14 +103,14 @@ class CookieConsentLog
         return $this->cookieName;
     }
 
-    public function setCookieValue(string $cookieValue): self
+    public function setCookieValue(bool $cookieValue): self
     {
         $this->cookieValue = $cookieValue;
 
         return $this;
     }
 
-    public function getCookieValue(): string
+    public function getCookieValue(): bool
     {
         return $this->cookieValue;
     }

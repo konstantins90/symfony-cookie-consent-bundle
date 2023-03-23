@@ -44,13 +44,14 @@ class CookieLogger
         $ip = $this->anonymizeIp($this->request->getClientIp());
 
         foreach ($categories as $category => $value) {
-            $this->persistCookieConsentLog($category, $value, $ip, $key);
+            $boolValue = $value == 'true' ? true : false;
+            $this->persistCookieConsentLog($category, $boolValue, $ip, $key);
         }
 
         $this->entityManager->flush();
     }
 
-    protected function persistCookieConsentLog(string $category, string $value, string $ip, string $key): void
+    protected function persistCookieConsentLog(string $category, bool $value, string $ip, string $key): void
     {
         $cookieConsentLog = (new CookieConsentLog())
             ->setIpAddress($ip)
