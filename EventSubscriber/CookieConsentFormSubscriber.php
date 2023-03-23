@@ -7,12 +7,12 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\EventSubscriber;
+namespace FatalNetwork\CookieConsentBundle\EventSubscriber;
 
-use ConnectHolland\CookieConsentBundle\Cookie\CookieHandler;
-use ConnectHolland\CookieConsentBundle\Cookie\CookieLogger;
-use ConnectHolland\CookieConsentBundle\Enum\CookieNameEnum;
-use ConnectHolland\CookieConsentBundle\Form\CookieConsentType;
+use FatalNetwork\CookieConsentBundle\Cookie\CookieHandler;
+use FatalNetwork\CookieConsentBundle\Cookie\CookieLogger;
+use FatalNetwork\CookieConsentBundle\Enum\CookieNameEnum;
+use FatalNetwork\CookieConsentBundle\Form\CookieConsentType;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;

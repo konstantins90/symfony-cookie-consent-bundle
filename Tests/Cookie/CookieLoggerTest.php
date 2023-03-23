@@ -7,10 +7,10 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Tests\Cookie;
+namespace FatalNetwork\CookieConsentBundle\Tests\Cookie;
 
-use ConnectHolland\CookieConsentBundle\Cookie\CookieLogger;
-use ConnectHolland\CookieConsentBundle\Entity\CookieConsentLog;
+use FatalNetwork\CookieConsentBundle\Cookie\CookieLogger;
+use FatalNetwork\CookieConsentBundle\Entity\CookieConsentLog;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\MockObject\MockObject;

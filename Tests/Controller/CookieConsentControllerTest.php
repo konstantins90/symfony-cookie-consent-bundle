@@ -7,11 +7,11 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Tests\Controller;
+namespace FatalNetwork\CookieConsentBundle\Tests\Controller;
 
-use ConnectHolland\CookieConsentBundle\Controller\CookieConsentController;
-use ConnectHolland\CookieConsentBundle\Cookie\CookieChecker;
-use ConnectHolland\CookieConsentBundle\Form\CookieConsentType;
+use FatalNetwork\CookieConsentBundle\Controller\CookieConsentController;
+use FatalNetwork\CookieConsentBundle\Cookie\CookieChecker;
+use FatalNetwork\CookieConsentBundle\Form\CookieConsentType;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormFactoryInterface;

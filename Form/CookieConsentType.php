@@ -7,9 +7,9 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Form;
+namespace FatalNetwork\CookieConsentBundle\Form;
 
-use ConnectHolland\CookieConsentBundle\Cookie\CookieChecker;
+use FatalNetwork\CookieConsentBundle\Cookie\CookieChecker;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -56,15 +56,15 @@ class CookieConsentType extends AbstractType
                 'multiple' => false,
                 'data'     => $this->cookieChecker->isCategoryAllowedByUser($category) ? 'true' : 'false',
                 'choices'  => [
-                    ['ch_cookie_consent.yes' => 'true'],
-                    ['ch_cookie_consent.no' => 'false'],
+                    ['fn_cookie_consent.yes' => 'true'],
+                    ['fn_cookie_consent.no' => 'false'],
                 ],
             ]);
         }
 
-        $builder->add('save', SubmitType::class, ['label' => 'ch_cookie_consent.save', 'attr' => ['class' => 'btn ch-cookie-consent__btn']]);
-        $builder->add('use_only_functional_cookies', SubmitType::class, ['label' => 'ch_cookie_consent.use_only_functional_cookies', 'attr' => ['class' => 'btn ch-cookie-consent__btn']]);
-        $builder->add('use_all_cookies', SubmitType::class, ['label' => 'ch_cookie_consent.use_all_cookies', 'attr' => ['class' => 'btn ch-cookie-consent__btn ch-cookie-consent__btn--secondary']]);
+        $builder->add('save', SubmitType::class, ['label' => 'fn_cookie_consent.save', 'attr' => ['class' => 'btn fn-cookie-consent__btn']]);
+        $builder->add('use_only_functional_cookies', SubmitType::class, ['label' => 'fn_cookie_consent.use_only_functional_cookies', 'attr' => ['class' => 'btn fn-cookie-consent__btn']]);
+        $builder->add('use_all_cookies', SubmitType::class, ['label' => 'fn_cookie_consent.use_all_cookies', 'attr' => ['class' => 'btn fn-cookie-consent__btn fn-cookie-consent__btn--secondary']]);
 
         $builder->addEventListener(FormEvents::PRE_SUBMIT, function (FormEvent $event) {
             $data = $event->getData();
@@ -83,7 +83,7 @@ class CookieConsentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'translation_domain' => 'CHCookieConsentBundle',
+            'translation_domain' => 'FNCookieConsentBundle',
             'csrf_protection' => $this->csrfProtection,
         ]);
     }

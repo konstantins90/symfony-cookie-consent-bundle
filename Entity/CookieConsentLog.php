@@ -7,14 +7,14 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Entity;
+namespace FatalNetwork\CookieConsentBundle\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="ch_cookieconsent_log")
+ * @ORM\Table(name="fn_cookieconsent_log")
  */
 class CookieConsentLog
 {

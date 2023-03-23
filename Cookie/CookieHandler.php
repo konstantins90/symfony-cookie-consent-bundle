@@ -7,9 +7,9 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Cookie;
+namespace FatalNetwork\CookieConsentBundle\Cookie;
 
-use ConnectHolland\CookieConsentBundle\Enum\CookieNameEnum;
+use FatalNetwork\CookieConsentBundle\Enum\CookieNameEnum;
 use DateInterval;
 use DateTime;
 use Symfony\Component\HttpFoundation\Cookie;

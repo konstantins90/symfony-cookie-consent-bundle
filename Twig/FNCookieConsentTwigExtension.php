@@ -7,14 +7,14 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Twig;
+namespace FatalNetwork\CookieConsentBundle\Twig;
 
-use ConnectHolland\CookieConsentBundle\Cookie\CookieChecker;
+use FatalNetwork\CookieConsentBundle\Cookie\CookieChecker;
 use Symfony\Component\HttpFoundation\Request;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class CHCookieConsentTwigExtension extends AbstractExtension
+class FNCookieConsentTwigExtension extends AbstractExtension
 {
     /**
      * Register all custom twig functions.
@@ -25,12 +25,12 @@ class CHCookieConsentTwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction(
-                'chcookieconsent_isCookieConsentSavedByUser',
+                'fncookieconsent_isCookieConsentSavedByUser',
                 [$this, 'isCookieConsentSavedByUser'],
                 ['needs_context' => true]
             ),
             new TwigFunction(
-                'chcookieconsent_isCategoryAllowedByUser',
+                'fncookieconsent_isCategoryAllowedByUser',
                 [$this, 'isCategoryAllowedByUser'],
                 ['needs_context' => true]
             ),

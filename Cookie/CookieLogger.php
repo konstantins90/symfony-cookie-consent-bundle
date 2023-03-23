@@ -7,9 +7,9 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Cookie;
+namespace FatalNetwork\CookieConsentBundle\Cookie;
 
-use ConnectHolland\CookieConsentBundle\Entity\CookieConsentLog;
+use FatalNetwork\CookieConsentBundle\Entity\CookieConsentLog;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;

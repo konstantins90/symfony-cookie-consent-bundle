@@ -7,7 +7,7 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Enum;
+namespace FatalNetwork\CookieConsentBundle\Enum;
 
 class CategoryEnum
 {

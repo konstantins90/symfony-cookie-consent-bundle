@@ -6,25 +6,25 @@ services:
     autoconfigure: true
     public: false
     bind:
-      $cookieConsentTheme: '%ch_cookie_consent.theme%'
-      $cookieCategories: '%ch_cookie_consent.categories%'
-      $useLogger: '%ch_cookie_consent.use_logger%'
-      $cookieConsentPosition: '%ch_cookie_consent.position%'
-      $httpOnly: '%ch_cookie_consent.http_only%'
-      $formAction: '%ch_cookie_consent.form_action%'
-      $csrfProtection: '%ch_cookie_consent.csrf_protection%'
+      $cookieConsentTheme: '%fn_cookie_consent.theme%'
+      $cookieCategories: '%fn_cookie_consent.categories%'
+      $useLogger: '%fn_cookie_consent.use_logger%'
+      $cookieConsentPosition: '%fn_cookie_consent.position%'
+      $httpOnly: '%fn_cookie_consent.http_only%'
+      $formAction: '%fn_cookie_consent.form_action%'
+      $csrfProtection: '%fn_cookie_consent.csrf_protection%'
 
-  ConnectHolland\CookieConsentBundle\:
+  FatalNetwork\CookieConsentBundle\:
     resource: '../../'
     exclude: '../../{vendor}'
 
-  ConnectHolland\CookieConsentBundle\Controller\:
+  FatalNetwork\CookieConsentBundle\Controller\:
     resource: '../../Controller/*'
     public: true
 
-  ConnectHolland\CookieConsentBundle\Cookie\CookieChecker:
+  FatalNetwork\CookieConsentBundle\Cookie\CookieChecker:
     arguments: ["@=service('request_stack').getCurrentRequest()"]
 
-  ConnectHolland\CookieConsentBundle\Cookie\CookieLogger:
+  FatalNetwork\CookieConsentBundle\Cookie\CookieLogger:
     arguments:
       $request: "@=service('request_stack').getCurrentRequest()"

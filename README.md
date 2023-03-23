@@ -24,7 +24,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new ConnectHolland\CookieConsentBundle\CHCookieConsentBundle(),
+        new FatalNetwork\CookieConsentBundle\FNCookieConsentBundle(),
         // ...
     );
 }
@@ -36,8 +36,8 @@ When not using symfony flex, enable the bundles routing manually:
 
 ```yaml
 # app/config/routing.yml
-ch_cookie_consent:
-  resource: '@CHCookieConsentBundle/Resources/config/routing.yaml'
+fn_cookie_consent:
+  resource: '@FNCookieConsentBundle/Resources/config/routing.yaml'
 ```
 
 ### Step 4: Configure to your needs
@@ -45,7 +45,7 @@ ch_cookie_consent:
 Configure your Cookie Consent with the following possible settings
 
 ```yaml
-ch_cookie_consent:
+fn_cookie_consent:
   theme: 'light' # light, dark
   categories: # Below are the default supported categories
     - 'analytics'
@@ -66,15 +66,15 @@ ch_cookie_consent:
 Load the cookie consent in Twig via render_esi ( to prevent caching ) at any place you like:
 
 ```twig
-{{ render_esi(path('ch_cookie_consent.show')) }}
-{{ render_esi(path('ch_cookie_consent.show_if_cookie_consent_not_set')) }}
+{{ render_esi(path('fn_cookie_consent.show')) }}
+{{ render_esi(path('fn_cookie_consent.show_if_cookie_consent_not_set')) }}
 ```
 
 If you want to load the cookie consent with a specific locale you can pass the locale as a parameter:
 
 ```twig
-{{ render_esi(path('ch_cookie_consent.show', { 'locale' : 'en' })) }}
-{{ render_esi(path('ch_cookie_consent.show_if_cookie_consent_not_set', { 'locale' : app.request.locale })) }}
+{{ render_esi(path('fn_cookie_consent.show', { 'locale' : 'en' })) }}
+{{ render_esi(path('fn_cookie_consent.show_if_cookie_consent_not_set', { 'locale' : app.request.locale })) }}
 ```
 
 ### Cookies
@@ -100,20 +100,20 @@ AVG/GDPR requires all given cookie preferences of users to be explainable by the
 
 The following TwigExtension functions are available:
 
-**chcookieconsent_isCategoryAllowedByUser**
+**fncookieconsent_isCategoryAllowedByUser**
 check if user has given it's permission for certain cookie categories
 
 ```twig
-{% if chcookieconsent_isCategoryAllowedByUser('analytics') == true %}
+{% if fncookieconsent_isCategoryAllowedByUser('analytics') == true %}
     ...
 {% endif %}
 ```
 
-**chcookieconsent_isCookieConsentSavedByUser**
+**fncookieconsent_isCookieConsentSavedByUser**
 check if user has saved any cookie preferences
 
 ```twig
-{% if chcookieconsent_isCookieConsentSavedByUser() == true %}
+{% if fncookieconsent_isCookieConsentSavedByUser() == true %}
     ...
 {% endif %}
 ```
@@ -126,11 +126,11 @@ You can add or remove any category by changing the config and making sure there 
 
 ### Translations
 
-All texts can be altered via Symfony translations by overwriting the CHCookieConsentBundle translation files.
+All texts can be altered via Symfony translations by overwriting the FNCookieConsentBundle translation files.
 
 ### Styling
 
-CHCookieConsentBundle comes with a default styling. A sass file is available in Resources/assets/css/cookie_consent.scss and a build css file is available in Resources/public/css/cookie_consent.css. Colors can easily be adjusted by setting the variables available in the sass file.
+FNCookieConsentBundle comes with a default styling. A sass file is available in Resources/assets/css/cookie_consent.scss and a build css file is available in Resources/public/css/cookie_consent.css. Colors can easily be adjusted by setting the variables available in the sass file.
 
 To install these assets run:
 
@@ -141,7 +141,7 @@ bin/console assets:install
 And include the styling in your template:
 
 ```twig
-{% include "@CHCookieConsent/cookie_consent_styling.html.twig" %}
+{% include "@FNCookieConsent/cookie_consent_styling.html.twig" %}
 ```
 
 ### Javascript
@@ -168,8 +168,8 @@ document.addEventListener(
 You can override the templates by placing templates inside your project (except for Symfony 5 projects):
 
 ```twig
-# app/Resources/CHCookieConsentBundle/views/cookie_consent.html.twig
-{% extends '@!CHCookieConsent/cookie_consent.html.twig' %}
+# app/Resources/FNCookieConsentBundle/views/cookie_consent.html.twig
+{% extends '@!FNCookieConsent/cookie_consent.html.twig' %}
 
 {% block title %}
     Your custom title
@@ -178,11 +178,11 @@ You can override the templates by placing templates inside your project (except 
 
 #### Template override for Symfony 5 projects
 
-You can override the templates by placing templaces inside you project as below. Be careful, it is important to place templates at this location: "app/templates/bundles/CHCookieConsentBundle/" .
+You can override the templates by placing templaces inside you project as below. Be careful, it is important to place templates at this location: "app/templates/bundles/FNCookieConsentBundle/" .
 
 ```twig
-# app/templates/bundles/CHCookieConsentBundle/cookie_consent.html.twig
-{% extends '@!CHCookieConsent/cookie_consent.html.twig' %}
+# app/templates/bundles/FNCookieConsentBundle/cookie_consent.html.twig
+{% extends '@!FNCookieConsent/cookie_consent.html.twig' %}
 
 {% block intro %}
     Your custom intro

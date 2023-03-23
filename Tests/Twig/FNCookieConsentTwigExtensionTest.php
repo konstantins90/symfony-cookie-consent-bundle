@@ -7,32 +7,32 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Tests\Twig;
+namespace FatalNetwork\CookieConsentBundle\Tests\Twig;
 
-use ConnectHolland\CookieConsentBundle\Twig\CHCookieConsentTwigExtension;
+use FatalNetwork\CookieConsentBundle\Twig\FNCookieConsentTwigExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bridge\Twig\AppVariable;
 use Symfony\Component\HttpFoundation\Request;
 
-class CHCookieConsentTwigExtensionTest extends TestCase
+class FNCookieConsentTwigExtensionTest extends TestCase
 {
     /**
-     * @var CHCookieConsentTwigExtension
+     * @var FNCookieConsentTwigExtension
      */
-    private $chCookieConsentTwigExtension;
+    private $fnCookieConsentTwigExtension;
 
     public function setUp(): void
     {
-        $this->chCookieConsentTwigExtension = new CHCookieConsentTwigExtension();
+        $this->fnCookieConsentTwigExtension = new FNCookieConsentTwigExtension();
     }
 
     public function testGetFunctions(): void
     {
-        $functions = $this->chCookieConsentTwigExtension->getFunctions();
+        $functions = $this->fnCookieConsentTwigExtension->getFunctions();
 
         $this->assertCount(2, $functions);
-        $this->assertSame('chcookieconsent_isCookieConsentSavedByUser', $functions[0]->getName());
-        $this->assertSame('chcookieconsent_isCategoryAllowedByUser', $functions[1]->getName());
+        $this->assertSame('fncookieconsent_isCookieConsentSavedByUser', $functions[0]->getName());
+        $this->assertSame('fncookieconsent_isCategoryAllowedByUser', $functions[1]->getName());
     }
 
     public function testIsCookieConsentSavedByUser(): void
@@ -46,7 +46,7 @@ class CHCookieConsentTwigExtensionTest extends TestCase
             ->wilLReturn($request);
 
         $context = ['app' => $appVariable];
-        $result  = $this->chCookieConsentTwigExtension->isCookieConsentSavedByUser($context);
+        $result  = $this->fnCookieConsentTwigExtension->isCookieConsentSavedByUser($context);
 
         $this->assertSame($result, false);
     }
@@ -62,7 +62,7 @@ class CHCookieConsentTwigExtensionTest extends TestCase
             ->wilLReturn($request);
 
         $context = ['app' => $appVariable];
-        $result  = $this->chCookieConsentTwigExtension->isCategoryAllowedByUser($context, 'analytics');
+        $result  = $this->fnCookieConsentTwigExtension->isCategoryAllowedByUser($context, 'analytics');
 
         $this->assertSame($result, false);
     }

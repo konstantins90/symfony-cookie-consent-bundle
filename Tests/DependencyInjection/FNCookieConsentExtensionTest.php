@@ -7,19 +7,19 @@ declare(strict_types=1);
  * (c) Connect Holland.
  */
 
-namespace ConnectHolland\CookieConsentBundle\Tests\DependencyInjection;
+namespace FatalNetwork\CookieConsentBundle\Tests\DependencyInjection;
 
-use ConnectHolland\CookieConsentBundle\DependencyInjection\CHCookieConsentExtension;
+use FatalNetwork\CookieConsentBundle\DependencyInjection\FNCookieConsentExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Yaml\Parser;
 
-class CHCookieConsentExtensionTest extends TestCase
+class FNCookieConsentExtensionTest extends TestCase
 {
     /**
-     * @var CHCookieConsentExtension
+     * @var FNCookieConsentExtension
      */
-    private $chCookieConsentExtension;
+    private $fnCookieConsentExtension;
 
     /**
      * @var ContainerBuilder
@@ -28,7 +28,7 @@ class CHCookieConsentExtensionTest extends TestCase
 
     public function setUp(): void
     {
-        $this->chCookieConsentExtension = new CHCookieConsentExtension();
+        $this->fnCookieConsentExtension = new FNCookieConsentExtension();
         $this->configuration            = new ContainerBuilder();
     }
 
@@ -36,9 +36,9 @@ class CHCookieConsentExtensionTest extends TestCase
     {
         $this->createConfiguration($this->getFullConfig());
 
-        $this->assertParameter(['analytics', 'tracking', 'marketing', 'social_media'], 'ch_cookie_consent.categories');
-        $this->assertParameter('dark', 'ch_cookie_consent.theme');
-        $this->assertParameter('top', 'ch_cookie_consent.position');
+        $this->assertParameter(['analytics', 'tracking', 'marketing', 'social_media'], 'fn_cookie_consent.categories');
+        $this->assertParameter('dark', 'fn_cookie_consent.theme');
+        $this->assertParameter('top', 'fn_cookie_consent.position');
     }
 
     /**
@@ -54,7 +54,7 @@ class CHCookieConsentExtensionTest extends TestCase
      */
     protected function createConfiguration(array $config): void
     {
-        $this->chCookieConsentExtension->load([$config], $this->configuration);
+        $this->fnCookieConsentExtension->load([$config], $this->configuration);
 
         $this->assertTrue($this->configuration instanceof ContainerBuilder);
     }
