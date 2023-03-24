@@ -4,31 +4,40 @@
     <script type="text/javascript" src="{{ asset('bundles/fncookieconsent/js/cookie_consent.js') }}"></script>
 {% endblock %}
 
-<div class="fn-cookie-consent fn-cookie-consent--{{ theme }}-theme fn-cookie-consent--{{ position }}">
-    {% block title %}
-        <h3 class="fn-cookie-consent__title">{{ 'fn_cookie_consent.title'|trans({}, 'FNCookieConsentBundle') }}</h3>
-    {% endblock %}
+<div id="cookieconsent" class="modal fn-cookie-consent fn-cookie-consent--{{ theme }}-theme fn-cookie-consent--{{ position }}" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            {% block title %}
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold fn-cookie-consent__title">{{ 'fn_cookie_consent.title'|trans({}, 'FNCookieConsentBundle') }}</h5>
+                </div>
+            {% endblock %}
+            <div class="modal-body">
+                {% block intro %}
+                    <p class="fn-cookie-consent__intro">{{ 'fn_cookie_consent.intro'|trans({}, 'FNCookieConsentBundle') }}</p>
+                {% endblock %}
 
-    {% block intro %}
-        <p class="fn-cookie-consent__intro">{{ 'fn_cookie_consent.intro'|trans({}, 'FNCookieConsentBundle') }}</p>
-    {% endblock %}
+                {% block read_more %}
+                    <a class="fn-cookie-consent__read-more" href="{% block read_more_link %}/privacy-statement{% endblock %}">{{ 'fn_cookie_consent.read_more'|trans({}, 'FNCookieConsentBundle') }}</a>
+                {% endblock %}
 
-    {% block read_more %}
-        <a class="fn-cookie-consent__read-more" href="{% block read_more_link %}/privacy-statement{% endblock %}">{{ 'fn_cookie_consent.read_more'|trans({}, 'FNCookieConsentBundle') }}</a>
-    {% endblock %}
+                {{ form_start(form, {'attr': {'class': 'mt-4 fn-cookie-consent__form'}}) }}
+                    <div class="d-flex border-top border-bottom border-dark fn-cookie-consent__category-group">
+                        <div class="row">
+                            {% for child in form %}
+                                {% if child.vars.block_prefixes[0] != 'button' %}
+                                    {{ form_row(child) }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
 
-    {{ form_start(form, {'attr': {'class': 'fn-cookie-consent__form'}}) }}
-        <div class="fn-cookie-consent__category-group">
-            {% for child in form %}
-                {% if child.vars.block_prefixes[0] != 'button' %}
-                    {{ form_row(child) }}
-                {% endif %}
-            {% endfor %}
+                    <div class="d-flex justify-content-end my-3 fn-cookie-consent__btn-group">
+                        {{ form_rest(form) }}
+                    </div>
+                {{ form_end(form) }}
+            </div>
         </div>
-
-        <div class="fn-cookie-consent__btn-group">
-            {{ form_rest(form) }}
-        </div>
-    {{ form_end(form) }}
+    </div>
 </div>
 

@@ -8,11 +8,6 @@ $fn-cookie-consent-checkbox-inactive-border-color: #223462 !default;
 $fn-cookie-consent-checkbox-active-background-color: #223462 !default;
 $fn-cookie-consent-checkbox-active-text-color: #fff !default;
 $fn-cookie-consent-checkbox-active-border-color: #fff !default;
-$fn-cookie-consent-button-background: linear-gradient(349.19deg, #cf1e34 0%, #ee365f 100%) !default;
-$fn-cookie-consent-button-text-color: #fff !default;
-$fn-cookie-consent-secondary-button-background: transparent !default;
-$fn-cookie-consent-secondary-button-text-color: #000 !default;
-$fn-cookie-consent-secondary-button-border-color: #000 !default;
 
 // Dark theme
 $fn-cookie-consent-dark-theme-background-color: #000 !default;
@@ -24,9 +19,6 @@ $fn-cookie-consent-dark-theme-checkbox-inactive-border-color: #fff !default;
 $fn-cookie-consent-dark-theme-checkbox-active-background-color: #fff !default;
 $fn-cookie-consent-dark-theme-checkbox-active-text-color: #000 !default;
 $fn-cookie-consent-dark-theme-checkbox-active-border-color: #000 !default;
-$fn-cookie-consent-dark-theme-secondary-button-background: transparent !default;
-$fn-cookie-consent-dark-theme-secondary-button-text-color: #fff !default;
-$fn-cookie-consent-dark-theme-secondary-button-border-color: #fff !default;
 
 @mixin check-icon($color: '#000') {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='#{$color}' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
@@ -48,25 +40,9 @@ $fn-cookie-consent-dark-theme-secondary-button-border-color: #fff !default;
     font-weight: bold;
     color: $fn-cookie-consent-text-color;
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  &__form {
-    margin-top: 40px;
   }
 
   &__category {
-    border-bottom: 1px solid $fn-cookie-consent-border-color;
-    padding: 30px 0;
-    display: flex;
-
-    @media screen and (max-width: 641px) {
-      flex-direction: column-reverse;
-    }
-
     &:first-child {
       border-top: 1px solid $fn-cookie-consent-border-color;
     }
@@ -121,54 +97,10 @@ $fn-cookie-consent-dark-theme-secondary-button-border-color: #fff !default;
       color: $fn-cookie-consent-text-color;
       margin: 0;
     }
-
-    &-description {
-      margin: 0;
-    }
   }
 
   &__btn-group {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    .fn-cookie-consent__btn {
-      margin-right: 30px;
-    }
-  }
-
-  &__btn-wrapper {
-    margin-bottom: 25px;
-
-    &:nth-child(2) {
-      flex-grow: 1;
-    }
-
-    @media screen and (max-width: 861px) {
-      width: 100%;
-    }
-  }
-
-  &__btn {
-    background: $fn-cookie-consent-button-background;
-    color: $fn-cookie-consent-button-text-color;
-    font-weight: bold;
-    padding: 10px 20px;
-    display: flex;
-    text-align: center;
-    border-radius: 6px;
-    box-shadow: 0 26px 10px -21px rgba(#000, 0.28);
-
-    @media screen and (max-width: 641px) {
-      width: 100%;
-      display: inline-block;
-    }
-
-    &--secondary {
-      background: $fn-cookie-consent-secondary-button-background;
-      color: $fn-cookie-consent-secondary-button-text-color;
-      border: 2px solid $fn-cookie-consent-secondary-button-border-color;
-    }
   }
 }
 
@@ -211,12 +143,6 @@ $fn-cookie-consent-dark-theme-secondary-button-border-color: #fff !default;
       &-title {
         color: $fn-cookie-consent-dark-theme-text-color;
       }
-    }
-
-    &__btn--secondary {
-      background: $fn-cookie-consent-dark-theme-secondary-button-background;
-      color: $fn-cookie-consent-dark-theme-secondary-button-text-color;
-      border: 2px solid $fn-cookie-consent-dark-theme-secondary-button-border-color;
     }
   }
 }

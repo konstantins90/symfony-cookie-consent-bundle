@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var cookieConsent = document.querySelector('.fn-cookie-consent')
   var cookieConsentForm = document.querySelector('.fn-cookie-consent__form')
   var cookieConsentFormBtn = document.querySelectorAll('.fn-cookie-consent__btn')
-  var cookieConsentCategoryDetails = document.querySelector('.fn-cookie-consent__category-group')
 
   // If cookie consent is direct child of body, assume it should be placed on top of the site pushing down the rest of the website
   if (cookieConsent && cookieConsent.parentNode.nodeName === 'BODY') {

@@ -1,15 +1,21 @@
 # Cookie Consent bundle for Symfony
 
-Symfony bundle to append Cookie Consent to your website to comply to AVG/GDPR for cookies.
+Symfony bundle to append Cookie Consent to your website to comply to AVG/GDPR for cookies, style works with Bootstrap v5.
 
 ## Installation
 
-### Step 1: Download using composer
+### Step 1: Download packages
 
 In a Symfony application run this command to install and integrate Cookie Consent bundle in your application:
 
 ```bash
 composer require connectholland/cookie-consent-bundle
+```
+
+In a Symfony application run this command to install and integrate Bootstrap in your application:
+
+```bash
+npm i bootstrap --save-dev
 ```
 
 ### Step 2: Enable the bundle
@@ -28,6 +34,12 @@ public function registerBundles()
         // ...
     );
 }
+```
+
+When enabled SassLoader in your webpack.config.js add the scss file from bootstrap to your project
+
+```scss
+@import '~bootstrap/scss/bootstrap.scss';
 ```
 
 ### Step 3: Enable the routing

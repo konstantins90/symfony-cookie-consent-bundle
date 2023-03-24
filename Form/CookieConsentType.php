@@ -54,18 +54,12 @@ class CookieConsentType extends AbstractType
             'label' => false,
             'disabled' => true,
             'data' => true,
-            'row_attr' => [
-                'class' => 'form-switch',
-            ],
         ]);
 
         foreach ($this->cookieCategories as $category) {
             $builder->add($category, CheckboxType::class, [
                 'label' => false,
                 'data' => $this->cookieChecker->isCategoryAllowedByUser($category) ? true : false,
-                'row_attr' => [
-                    'class' => 'form-switch',
-                ],
             ]);
         }
 
