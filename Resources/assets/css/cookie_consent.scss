@@ -9,17 +9,6 @@ $fn-cookie-consent-checkbox-active-background-color: #223462 !default;
 $fn-cookie-consent-checkbox-active-text-color: #fff !default;
 $fn-cookie-consent-checkbox-active-border-color: #fff !default;
 
-// Dark theme
-$fn-cookie-consent-dark-theme-background-color: #000 !default;
-$fn-cookie-consent-dark-theme-text-color: #fff !default;
-$fn-cookie-consent-dark-theme-border-color: #fff !default;
-$fn-cookie-consent-dark-theme-checkbox-inactive-background-color: #000 !default;
-$fn-cookie-consent-dark-theme-checkbox-inactive-text-color: #fff !default;
-$fn-cookie-consent-dark-theme-checkbox-inactive-border-color: #fff !default;
-$fn-cookie-consent-dark-theme-checkbox-active-background-color: #fff !default;
-$fn-cookie-consent-dark-theme-checkbox-active-text-color: #000 !default;
-$fn-cookie-consent-dark-theme-checkbox-active-border-color: #000 !default;
-
 @mixin check-icon($color: '#000') {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='#{$color}' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
 }
@@ -101,48 +90,5 @@ $fn-cookie-consent-dark-theme-checkbox-active-border-color: #000 !default;
 
   &__btn-group {
     display: flex;
-  }
-}
-
-.fn-cookie-consent--dark-theme {
-  background-color: $fn-cookie-consent-dark-theme-background-color;
-  color: $fn-cookie-consent-dark-theme-text-color;
-
-  .fn-cookie-consent {
-    &__title,
-    &__read-more {
-      color: $fn-cookie-consent-dark-theme-text-color;
-    }
-
-    &__category {
-      border-color: $fn-cookie-consent-dark-theme-border-color;
-
-      &:first-child {
-        border-color: $fn-cookie-consent-dark-theme-border-color;
-      }
-
-      &-toggle {
-        input + label {
-          background-color: $fn-cookie-consent-dark-theme-checkbox-inactive-background-color;
-          color: $fn-cookie-consent-dark-theme-checkbox-inactive-text-color;
-          border-color: $fn-cookie-consent-dark-theme-checkbox-inactive-border-color;
-        }
-
-        input:checked + label,
-        input + label:hover {
-          background-color: $fn-cookie-consent-dark-theme-checkbox-active-background-color;
-          color: $fn-cookie-consent-dark-theme-checkbox-active-text-color;
-          border-color: $fn-cookie-consent-dark-theme-checkbox-active-border-color;
-        }
-
-        input:checked + label {
-          @include check-icon($fn-cookie-consent-dark-theme-checkbox-active-text-color);
-        }
-      }
-
-      &-title {
-        color: $fn-cookie-consent-dark-theme-text-color;
-      }
-    }
   }
 }

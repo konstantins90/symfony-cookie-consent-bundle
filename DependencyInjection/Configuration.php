@@ -11,7 +11,6 @@ namespace FatalNetwork\CookieConsentBundle\DependencyInjection;
 
 use FatalNetwork\CookieConsentBundle\Enum\CategoryEnum;
 use FatalNetwork\CookieConsentBundle\Enum\PositionEnum;
-use FatalNetwork\CookieConsentBundle\Enum\ThemeEnum;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -32,10 +31,6 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->variableNode('categories')
                     ->defaultValue([CategoryEnum::CATEGORY_TRACKING, CategoryEnum::CATEGORY_MARKETING, CategoryEnum::CATEGORY_SOCIAL_MEDIA])
-                ->end()
-                ->enumNode('theme')
-                    ->defaultValue(ThemeEnum::THEME_LIGHT)
-                    ->values(ThemeEnum::getAvailableThemes())
                 ->end()
                 ->enumNode('position')
                     ->defaultValue(PositionEnum::POSITION_TOP)

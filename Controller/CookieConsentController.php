@@ -45,11 +45,6 @@ class CookieConsentController
     /**
      * @var string
      */
-    private $cookieConsentTheme;
-
-    /**
-     * @var string
-     */
     private $cookieConsentPosition;
 
     /**
@@ -67,7 +62,6 @@ class CookieConsentController
         FormFactoryInterface $formFactory,
         CookieChecker $cookieChecker,
         RouterInterface $router,
-        string $cookieConsentTheme,
         string $cookieConsentPosition,
         TranslatorInterface $translator,
         string $formAction = null
@@ -76,7 +70,6 @@ class CookieConsentController
         $this->formFactory             = $formFactory;
         $this->cookieChecker           = $cookieChecker;
         $this->router                  = $router;
-        $this->cookieConsentTheme      = $cookieConsentTheme;
         $this->cookieConsentPosition   = $cookieConsentPosition;
         $this->translator              = $translator;
         $this->formAction              = $formAction;
@@ -94,7 +87,6 @@ class CookieConsentController
         $response = new Response(
             $this->twigEnvironment->render('@FNCookieConsent/cookie_consent.html.twig', [
                 'form'       => $this->createCookieConsentForm()->createView(),
-                'theme'      => $this->cookieConsentTheme,
                 'position'   => $this->cookieConsentPosition,
             ])
         );

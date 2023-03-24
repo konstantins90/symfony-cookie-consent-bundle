@@ -6,7 +6,6 @@ services:
     autoconfigure: true
     public: false
     bind:
-      $cookieConsentTheme: '%fn_cookie_consent.theme%'
       $cookieCategories: '%fn_cookie_consent.categories%'
       $useLogger: '%fn_cookie_consent.use_logger%'
       $cookieConsentPosition: '%fn_cookie_consent.position%'

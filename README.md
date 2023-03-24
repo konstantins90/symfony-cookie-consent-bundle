@@ -58,7 +58,6 @@ Configure your Cookie Consent with the following possible settings
 
 ```yaml
 fn_cookie_consent:
-  theme: 'light' # light, dark
   categories: # Below are the default supported categories
     - 'analytics'
     - 'tracking'
@@ -105,7 +104,6 @@ AVG/GDPR requires all given cookie preferences of users to be explainable by the
 
 ### Themes
 
-![Dark Theme](https://raw.githubusercontent.com/ConnectHolland/cookie-consent-bundle/master/Resources/doc/dark_theme.png)
 ![Light Theme](https://raw.githubusercontent.com/ConnectHolland/cookie-consent-bundle/master/Resources/doc/light_theme.png)
 
 ### TwigExtension
