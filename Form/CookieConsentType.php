@@ -50,6 +50,15 @@ class CookieConsentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $builder->add('required', CheckboxType::class, [
+            'label' => false,
+            'disabled' => true,
+            'data' => true,
+            'row_attr' => [
+                'class' => 'form-switch',
+            ],
+        ]);
+
         foreach ($this->cookieCategories as $category) {
             $builder->add($category, CheckboxType::class, [
                 'label' => false,
