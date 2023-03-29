@@ -20,6 +20,8 @@ npm i bootstrap --save-dev
 
 ### Step 2: Enable the bundle
 
+#### Kernel
+
 When not using symfony flex, enable the bundle in the kernel manually:
 
 ```php
@@ -36,11 +38,17 @@ public function registerBundles()
 }
 ```
 
-When enabled SassLoader in your webpack.config.js add the scss file from bootstrap to your project
+#### Bootstrap Style
+
+When enabled SassLoader in your webpack.config.js add the scss file from bootstrap to your project:
 
 ```scss
 @import '~bootstrap/scss/bootstrap.scss';
 ```
+
+#### Stimulus Controller
+
+Copy the stimulus controller from Resources/assets/controllers/cookie_consent_modal_controller.js to your controller folder inside your application
 
 ### Step 3: Enable the routing
 
@@ -86,6 +94,21 @@ If you want to load the cookie consent with a specific locale you can pass the l
 ```twig
 {{ render_esi(path('fn_cookie_consent.show', { 'locale' : 'en' })) }}
 {{ render_esi(path('fn_cookie_consent.show_if_cookie_consent_not_set', { 'locale' : app.request.locale })) }}
+```
+
+Instead of using render_esi() you can use the render() function:
+
+```twig
+{{ render(path('fn_cookie_consent.show')) }}
+{{ render(path('fn_cookie_consent.show_if_cookie_consent_not_set')) }}
+```
+
+### Stimulus implementation
+
+The stimulus controller is already used in Resources/assets/views/cookie_consent.html.twig. If you want you can set more links for opening the modal like this:
+
+```twig
+<a href="#" {{ stimulus_action('cookie_consent_modal', 'show') }}>Cookies</a>
 ```
 
 ### Cookies
@@ -156,7 +179,7 @@ And include the styling in your template:
 
 ### Javascript
 
-By loading Resources/public/js/cookie_consent.js the cookie consent will be submitted via ajax and the cookie consent will be shown on top of your website while pushing down the rest of the website.
+By loading Resources/public/js/cookie_consent.js the cookie consent will be submitted via ajax.
 
 ### Events
 
