@@ -4,7 +4,7 @@
     <script type="text/javascript" src="{{ asset('bundles/fncookieconsent/js/cookie_consent.js') }}"></script>
 {% endblock %}
 
-<div id="cookieconsent" class="modal fn-cookie-consent fn-cookie-consent--{{ position }}" tabindex="-1" {{ stimulus_controller('cookie_consent_modal', {
+<div id="cookieconsent" class="modal fn-cookie-consent" tabindex="-1" {{ stimulus_controller('cookie_consent_modal', {
     open: fncookieconsent_isCookieConsentSavedByUser() == false ? true : false
 }) }}>
     <div class="modal-dialog modal-xl">

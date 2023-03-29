@@ -66,10 +66,7 @@ class CookieConsentControllerTest extends TestCase
             $this->formFactory,
             $this->cookieChecker,
             $this->router,
-            'dark',
-            'top',
-            $this->translator,
-            false
+            $this->translator
         );
     }
 

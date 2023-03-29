@@ -3,23 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var cookieConsentForm = document.querySelector('.fn-cookie-consent__form')
   var cookieConsentFormBtn = document.querySelectorAll('.fn-cookie-consent__btn')
 
-  // If cookie consent is direct child of body, assume it should be placed on top of the site pushing down the rest of the website
-  if (cookieConsent && cookieConsent.parentNode.nodeName === 'BODY') {
-    if (cookieConsent.classList.contains('fn-cookie-consent--top')) {
-      document.body.style.marginTop = cookieConsent.offsetHeight + 'px'
-
-      cookieConsent.style.position = 'absolute'
-      cookieConsent.style.top = '0'
-      cookieConsent.style.left = '0'
-    } else {
-      document.body.style.marginBottom = cookieConsent.offsetHeight + 'px'
-
-      cookieConsent.style.position = 'fixed'
-      cookieConsent.style.bottom = '0'
-      cookieConsent.style.left = '0'
-    }
-  }
-
   if (cookieConsentForm) {
     // Submit form via ajax
     for (var i = 0; i < cookieConsentFormBtn.length; i++) {

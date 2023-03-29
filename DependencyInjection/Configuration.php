@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace FatalNetwork\CookieConsentBundle\DependencyInjection;
 
 use FatalNetwork\CookieConsentBundle\Enum\CategoryEnum;
-use FatalNetwork\CookieConsentBundle\Enum\PositionEnum;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -31,10 +30,6 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->variableNode('categories')
                     ->defaultValue([CategoryEnum::CATEGORY_ANALYTICS, CategoryEnum::CATEGORY_MARKETING, CategoryEnum::CATEGORY_PREFERENCES])
-                ->end()
-                ->enumNode('position')
-                    ->defaultValue(PositionEnum::POSITION_TOP)
-                    ->values(PositionEnum::getAvailablePositions())
                 ->end()
                 ->booleanNode('use_logger')
                     ->defaultTrue()

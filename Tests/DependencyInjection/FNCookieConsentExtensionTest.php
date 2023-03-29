@@ -37,7 +37,6 @@ class FNCookieConsentExtensionTest extends TestCase
         $this->createConfiguration($this->getFullConfig());
 
         $this->assertParameter(['analytics', 'marketing', 'preferences'], 'fn_cookie_consent.categories');
-        $this->assertParameter('top', 'fn_cookie_consent.position');
     }
 
     /**
@@ -65,7 +64,6 @@ class FNCookieConsentExtensionTest extends TestCase
     {
         $yaml = <<<EOF
 categories: ['analytics', 'marketing', 'preferences']
-position: 'top'
 EOF;
         $parser = new Parser();
 

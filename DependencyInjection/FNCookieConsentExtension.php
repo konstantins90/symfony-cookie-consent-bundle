@@ -24,7 +24,6 @@ class FNCookieConsentExtension extends Extension
 
         $container->setParameter('fn_cookie_consent.categories', $config['categories']);
         $container->setParameter('fn_cookie_consent.use_logger', $config['use_logger']);
-        $container->setParameter('fn_cookie_consent.position', $config['position']);
         $container->setParameter('fn_cookie_consent.http_only', $config['http_only']);
         $container->setParameter('fn_cookie_consent.form_action', $config['form_action']);
         $container->setParameter('fn_cookie_consent.csrf_protection', $config['csrf_protection']);

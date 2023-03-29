@@ -8,7 +8,6 @@ services:
     bind:
       $cookieCategories: '%fn_cookie_consent.categories%'
       $useLogger: '%fn_cookie_consent.use_logger%'
-      $cookieConsentPosition: '%fn_cookie_consent.position%'
       $httpOnly: '%fn_cookie_consent.http_only%'
       $formAction: '%fn_cookie_consent.form_action%'
       $csrfProtection: '%fn_cookie_consent.csrf_protection%'

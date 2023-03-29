@@ -68,11 +68,9 @@ Configure your Cookie Consent with the following possible settings
 fn_cookie_consent:
   categories: # Below are the default supported categories
     - 'analytics'
-    - 'tracking'
     - 'marketing'
-    - 'social_media'
+    - 'preferences'
   use_logger: true # Logs user actions to database
-  position: 'top' # top, bottom
   http_only: true # Sets HttpOnly on cookies
   form_action: $routeName # When set, xhr-Requests will only be sent to this route. Take care of having the route available.
   csrf_protection: true # The cookie consent form is csrf protected or not
