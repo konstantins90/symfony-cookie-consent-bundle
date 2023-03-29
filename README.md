@@ -121,7 +121,7 @@ When a user submits the form the preferences are saved as cookies. The cookies h
 
 AVG/GDPR requires all given cookie preferences of users to be explainable by the webmasters. For this we log all cookie preferences to the database. IP addresses are anonymized. This option can be disabled in the config.
 
-![Database logging](https://raw.githubusercontent.com/fatalnetwork/symfony-cookie-consent-bundle/master/Resources/doc/log.png)
+![Log](https://raw.githubusercontent.com/fatalnetwork/symfony-cookie-consent-bundle/master/Resources/doc/log.png)
 
 ### Themes
 
