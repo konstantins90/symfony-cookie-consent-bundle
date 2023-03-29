@@ -161,15 +161,19 @@ All texts can be altered via Symfony translations by overwriting the FNCookieCon
 
 ### Styling
 
-FNCookieConsentBundle comes with a default styling. A sass file is available in Resources/assets/css/cookie_consent.scss and a build css file is available in Resources/public/css/cookie_consent.css. Colors can easily be adjusted by setting the variables available in the sass file.
+FNCookieConsentBundle comes without an own styling, it is styled from bootstrap. A sass file is available in Resources/assets/css/cookie_consent.scss and a build css file is available in Resources/public/css/cookie_consent.css for customization. Each element has a unique class name, so you can change everything.
 
-To install these assets run:
+#### Option SASS
 
-```bash
-bin/console assets:install
+Copy the file Resources/assets/css/cookie_consent.scss into your project style folder, eg. /assets/styles/cookie_consent.scss and include this scss file into your /assets/styles/app.scss
+
+```scss
+@import './cookie_consent.scss';
 ```
 
-And include the styling in your template:
+#### Option CSS
+
+Include the stylesheet in your template, eg. /templates/base.html.twig
 
 ```twig
 {% include "@FNCookieConsent/cookie_consent_styling.html.twig" %}

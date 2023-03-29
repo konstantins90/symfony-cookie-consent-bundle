@@ -21,9 +21,9 @@
 
                 {% block read_more %}
                     {% if 'fn_cookie_consent.privacy_route'|trans({}, 'FNCookieConsentBundle') %}
-                        <a class="fn-cookie-consent__read-more" href="{% block read_more_link %}{{ path('fn_cookie_consent.privacy_route'|trans({}, 'FNCookieConsentBundle')) }}{% endblock %}">{{ 'fn_cookie_consent.read_more'|trans({}, 'FNCookieConsentBundle') }}</a>
+                        <a class="btn btn-link text-decoration-none fn-cookie-consent__read-more" href="{% block read_more_link %}{{ path('fn_cookie_consent.privacy_route'|trans({}, 'FNCookieConsentBundle')) }}{% endblock %}">{{ 'fn_cookie_consent.read_more'|trans({}, 'FNCookieConsentBundle') }}</a>
                     {% else %}
-                        {{ 'fn_cookie_consent.read_more'|trans({}, 'FNCookieConsentBundle') }}
+                        <p>{{ 'fn_cookie_consent.read_more'|trans({}, 'FNCookieConsentBundle') }}</p>
                     {% endif %}
                 {% endblock %}
 
