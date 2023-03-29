@@ -159,7 +159,7 @@ You can add or remove any category by changing the config and making sure there 
 
 ### Translations
 
-All texts can be altered via Symfony translations by overwriting the FNCookieConsentBundle translation files.
+All texts can be altered via Symfony translations by overwriting the FNCookieConsentBundle translation files. Use the privacy_route variable inside language files to define the definied route names inside your controller.
 
 ### Styling
 

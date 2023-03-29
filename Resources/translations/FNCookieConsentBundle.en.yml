@@ -17,3 +17,4 @@ fn_cookie_consent:
   save: 'Save settings'
   use_only_functional_cookies: 'Only use functional cookies'
   use_all_cookies: 'Allow all cookies'
+  privacy_route: ''

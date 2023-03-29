@@ -17,3 +17,4 @@ fn_cookie_consent:
   save: 'Speichern wie ausgewählt'
   use_only_functional_cookies: 'Nicht erforderliche ablehnen'
   use_all_cookies: 'Alle akzeptieren'
+  privacy_route: ''
