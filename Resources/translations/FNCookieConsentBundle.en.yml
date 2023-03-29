@@ -1,22 +1,19 @@
 fn_cookie_consent:
-  title: 'Cookies on our website.'
-  intro: ''
-  read_more: 'read more about this'
+  title: 'Cookie settings'
+  intro: 'We are using cookies'
+  read_more: 'go to privacy information'
   required:
     title: 'Required'
-    description: ''
+    description: 'info about required'
+  preferences:
+    title: 'Preferences'
+    description: 'info about preferences'
   analytics:
-    title: 'Do you want analytical cookies?'
-    description: ''
-  tracking:
-    title: 'Do you want tracking cookies?'
-    description: ''
+    title: 'Analytics'
+    description: 'info about analytics'
   marketing:
-    title: 'Do you want personalised ads?'
-    description: ''
-  social_media:
-    title: 'Do you want social media cookies?'
-    description: ''
-  save: 'Save'
+    title: 'Marketing'
+    description: 'info about marketing cookies'
+  save: 'Save settings'
   use_only_functional_cookies: 'Only use functional cookies'
   use_all_cookies: 'Allow all cookies'

@@ -35,9 +35,9 @@ class CookieConsentTypeTest extends TypeTestCase
     public function testSubmitValidDate(): void
     {
         $formData = [
-            'analytics'    => 'true',
-            'tracking'     => 'true',
-            'marketing'    => 'false',
+            'analytics' => 'true',
+            'marketing' => 'true',
+            'preferences' => 'false',
         ];
 
         $form = $this->factory->create(CookieConsentType::class);
@@ -49,7 +49,7 @@ class CookieConsentTypeTest extends TypeTestCase
 
     protected function getExtensions(): array
     {
-        $type = new CookieConsentType($this->cookieChecker, ['analytics', 'tracking', 'marketing'], false);
+        $type = new CookieConsentType($this->cookieChecker, ['analytics', 'marketing', 'preferences'], false);
 
         return [
             new PreloadedExtension([$type], []),

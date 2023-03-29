@@ -30,7 +30,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->variableNode('categories')
-                    ->defaultValue([CategoryEnum::CATEGORY_TRACKING, CategoryEnum::CATEGORY_MARKETING, CategoryEnum::CATEGORY_SOCIAL_MEDIA])
+                    ->defaultValue([CategoryEnum::CATEGORY_ANALYTICS, CategoryEnum::CATEGORY_MARKETING, CategoryEnum::CATEGORY_PREFERENCES])
                 ->end()
                 ->enumNode('position')
                     ->defaultValue(PositionEnum::POSITION_TOP)

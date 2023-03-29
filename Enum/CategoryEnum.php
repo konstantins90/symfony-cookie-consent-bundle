@@ -14,5 +14,5 @@ class CategoryEnum
     const CATEGORY_ANALYTICS    = 'analytics';
     const CATEGORY_TRACKING     = 'tracking';
     const CATEGORY_MARKETING    = 'marketing';
-    const CATEGORY_SOCIAL_MEDIA = 'social_media';
+    const CATEGORY_PREFERENCES  = 'preferences';
 }

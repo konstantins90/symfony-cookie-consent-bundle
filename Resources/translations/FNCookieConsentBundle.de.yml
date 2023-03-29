@@ -1,0 +1,19 @@
+fn_cookie_consent:
+  title: 'Cookie Einstellungen'
+  intro: 'Wir verwenden Cookies'
+  read_more: 'Link zu unseren Datenschutzbestimmungen'
+  required:
+    title: 'Notwendig'
+    description: 'Informationen über notwendige Cookies'
+  preferences:
+    title: 'Präferenzen'
+    description: 'Informationen über Präferenzen'
+  analytics:
+    title: 'Statistiken'
+    description: 'Informationen über Analyse Cookies'
+  marketing:
+    title: 'Marketing'
+    description: 'Informationen über Marketing Cookies'
+  save: 'Speichern wie ausgewählt'
+  use_only_functional_cookies: 'Nicht erforderliche ablehnen'
+  use_all_cookies: 'Alle akzeptieren'

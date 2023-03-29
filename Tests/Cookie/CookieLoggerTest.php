@@ -69,9 +69,9 @@ class CookieLoggerTest extends TestCase
             ->with();
 
         $this->cookieLogger->log([
-            'analytics'    => 'true',
-            'social_media' => 'true',
-            'tracking'     => 'false',
+            'analytics' => 'true',
+            'marketing' => 'true',
+            'preferences' => 'false',
         ], 'key-test');
     }
 
@@ -95,9 +95,9 @@ class CookieLoggerTest extends TestCase
             ->with();
 
         $this->cookieLogger->log([
-            'analytics'    => 'true',
-            'social_media' => 'true',
-            'tracking'     => 'false',
+            'analytics' => 'true',
+            'marketing' => 'true',
+            'preferences' => 'false',
         ], 'key-test');
     }
 

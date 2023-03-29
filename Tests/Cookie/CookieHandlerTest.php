@@ -44,10 +44,10 @@ class CookieHandlerTest extends TestCase
         $this->assertSame('Cookie_Category_analytics', $cookies[2]->getName());
         $this->assertSame('true', $cookies[2]->getValue());
 
-        $this->assertSame('Cookie_Category_social_media', $cookies[3]->getName());
+        $this->assertSame('Cookie_Category_marketing', $cookies[3]->getName());
         $this->assertSame('true', $cookies[3]->getValue());
 
-        $this->assertSame('Cookie_Category_tracking', $cookies[4]->getName());
+        $this->assertSame('Cookie_Category_preferences', $cookies[4]->getName());
         $this->assertSame('false', $cookies[4]->getValue());
     }
 
@@ -80,8 +80,8 @@ class CookieHandlerTest extends TestCase
 
         $cookieHandler->save([
             'analytics'    => 'true',
-            'social_media' => 'true',
-            'tracking'     => 'false',
+            'marketing' => 'true',
+            'preferences'     => 'false',
         ], 'key-test', $this->response);
     }
 }
