@@ -11,6 +11,7 @@ services:
       $httpOnly: '%fn_cookie_consent.http_only%'
       $formAction: '%fn_cookie_consent.form_action%'
       $csrfProtection: '%fn_cookie_consent.csrf_protection%'
+      $cookieConsentDisabledRoutes: '%fn_cookie_consent.disabled_routes%'
 
   FatalNetwork\CookieConsentBundle\:
     resource: '../../'

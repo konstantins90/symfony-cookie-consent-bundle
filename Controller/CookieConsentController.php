@@ -52,13 +52,19 @@ class CookieConsentController
      */
     private $formAction;
 
+    /**
+     * @var array
+     */
+    private $disabledRoutes;
+
     public function __construct(
         Environment $twigEnvironment,
         FormFactoryInterface $formFactory,
         CookieChecker $cookieChecker,
         RouterInterface $router,
         TranslatorInterface $translator,
-        string $formAction = null
+        string $formAction = null,
+        array $cookieConsentDisabledRoutes = []
     ) {
         $this->twigEnvironment         = $twigEnvironment;
         $this->formFactory             = $formFactory;
@@ -66,6 +72,7 @@ class CookieConsentController
         $this->router                  = $router;
         $this->translator              = $translator;
         $this->formAction              = $formAction;
+        $this->disabledRoutes          = $cookieConsentDisabledRoutes;
     }
 
     /**
@@ -80,6 +87,7 @@ class CookieConsentController
         $response = new Response(
             $this->twigEnvironment->render('@FNCookieConsent/cookie_consent.html.twig', [
                 'form'       => $this->createCookieConsentForm()->createView(),
+                'disabled_routes' => $this->disabledRoutes,
             ])
         );
 

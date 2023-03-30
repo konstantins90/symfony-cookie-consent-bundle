@@ -34,7 +34,20 @@ class FNCookieConsentTwigExtension extends AbstractExtension
                 [$this, 'isCategoryAllowedByUser'],
                 ['needs_context' => true]
             ),
+            new TwigFunction(
+                'fncookieconsent_isCookieConsentOpenByDefault',
+                [$this, 'isCookieConsentOpenByDefault'],
+                ['needs_context' => true]
+            ),
         ];
+    }
+
+    /**
+     * Checks if cookie consent is allowed to display for this page.
+     */
+    public function isCookieConsentOpenByDefault(array $context, string $currentRoute, array $disabledRoutes): bool
+    {
+        return in_array($currentRoute, $disabledRoutes) || $this->isCookieConsentSavedByUser($context) ? false : true;
     }
 
     /**

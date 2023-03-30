@@ -74,6 +74,7 @@ fn_cookie_consent:
   http_only: true # Sets HttpOnly on cookies
   form_action: $routeName # When set, xhr-Requests will only be sent to this route. Take care of having the route available.
   csrf_protection: true # The cookie consent form is csrf protected or not
+  disabled_routes: ['privacy', 'imprint'] # defined controller route names where cookieConsent will not be shown by default
 ```
 
 ## Usage
@@ -83,21 +84,30 @@ fn_cookie_consent:
 Load the cookie consent in Twig via render_esi ( to prevent caching ) at any place you like:
 
 ```twig
-{{ render_esi(path('fn_cookie_consent.show')) }}
+{{ render_esi(path('fn_cookie_consent.show', {
+    route: app.request.attributes.get('_route')
+})) }}
 {{ render_esi(path('fn_cookie_consent.show_if_cookie_consent_not_set')) }}
 ```
 
 If you want to load the cookie consent with a specific locale you can pass the locale as a parameter:
 
 ```twig
-{{ render_esi(path('fn_cookie_consent.show', { 'locale' : 'en' })) }}
-{{ render_esi(path('fn_cookie_consent.show_if_cookie_consent_not_set', { 'locale' : app.request.locale })) }}
+{{ render_esi(path('fn_cookie_consent.show', {
+  locale: 'en',
+  route: app.request.attributes.get('_route')
+})) }}
+{{ render_esi(path('fn_cookie_consent.show_if_cookie_consent_not_set', {
+  locale: app.request.locale
+})) }}
 ```
 
 Instead of using render_esi() you can use the render() function:
 
 ```twig
-{{ render(path('fn_cookie_consent.show')) }}
+{{ render(path('fn_cookie_consent.show', {
+    route: app.request.attributes.get('_route')
+})) }}
 {{ render(path('fn_cookie_consent.show_if_cookie_consent_not_set')) }}
 ```
 

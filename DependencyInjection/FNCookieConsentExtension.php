@@ -27,6 +27,7 @@ class FNCookieConsentExtension extends Extension
         $container->setParameter('fn_cookie_consent.http_only', $config['http_only']);
         $container->setParameter('fn_cookie_consent.form_action', $config['form_action']);
         $container->setParameter('fn_cookie_consent.csrf_protection', $config['csrf_protection']);
+        $container->setParameter('fn_cookie_consent.disabled_routes', $config['disabled_routes']);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');

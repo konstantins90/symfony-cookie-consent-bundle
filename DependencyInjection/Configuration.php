@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace FatalNetwork\CookieConsentBundle\DependencyInjection;
 
 use FatalNetwork\CookieConsentBundle\Enum\CategoryEnum;
+use FatalNetwork\CookieConsentBundle\Enum\DisabledRoutesEnum;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -42,6 +43,9 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->booleanNode('csrf_protection')
                     ->defaultTrue()
+                ->end()
+                ->variableNode('disabled_routes')
+                    ->defaultValue([DisabledRoutesEnum::DISABLED_ROUTE_PRIVACY, DisabledRoutesEnum::DISABLED_ROUTE_IMPRINT])
                 ->end()
             ->end()
         ;
