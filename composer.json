@@ -32,12 +32,12 @@
       "/Tests/"
     ],
     "psr-4": {
-      "ConnectHolland\\CookieConsentBundle\\": ""
+      "FatalNetwork\\CookieConsentBundle\\": ""
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "ConnectHolland\\CookieConsentBundle\\Tests\\": "/Tests"
+      "FatalNetwork\\CookieConsentBundle\\Tests\\": "/Tests"
     }
   },
   "config": {
