@@ -1,66 +1,38 @@
 # Cookie Consent bundle for Symfony
 
-Symfony bundle to append Cookie Consent to your website to comply to AVG/GDPR for cookies, style works with Bootstrap v5.
+Symfony bundle to append Cookie Consent to your website to comply to AVG/GDPR for cookies. This bundle is tested for Symfony 5. The style works with Bootstrap 5.
 
 ## Installation
 
 ### Step 1: Download packages
 
-In a Symfony application run this command to install and integrate Cookie Consent bundle in your application:
+In a Symfony application run this command to install Cookie Consent bundle in your application
 
 ```bash
 composer require fatalnetwork/symfony-cookie-consent-bundle
 ```
 
-In a Symfony application run this command to install and integrate Bootstrap in your application:
+In a Symfony application run this command to install Bootstrap in your application
 
 ```bash
 npm i bootstrap --save-dev
 ```
 
-### Step 2: Enable the bundle
+### Step 2: Configuration
 
-#### Kernel
+#### /config/bundles.php
 
-When not using symfony flex, enable the bundle in the kernel manually:
+Include the bundle to your project
 
 ```php
-<?php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new FatalNetwork\CookieConsentBundle\FNCookieConsentBundle(),
-        // ...
-    );
-}
+return [
+  // ...
+  FatalNetwork\CookieConsentBundle\FNCookieConsentBundle::class => ['all' => true],
+  // ...
+];
 ```
 
-#### Bootstrap Style
-
-When enabled SassLoader in your webpack.config.js add the scss file from bootstrap to your project:
-
-```scss
-@import '~bootstrap/scss/bootstrap.scss';
-```
-
-#### Stimulus Controller
-
-Copy the stimulus controller from Resources/assets/controllers/cookie_consent_modal_controller.js to your controller folder inside your application
-
-### Step 3: Enable the routing
-
-When not using symfony flex, enable the bundles routing manually:
-
-```yaml
-# app/config/routing.yml
-fn_cookie_consent:
-  resource: '@FNCookieConsentBundle/Resources/config/routing.yaml'
-```
-
-### Step 4: Configure to your needs
+#### /config/packages/fn_cookie_consent.yaml
 
 Configure your Cookie Consent with the following possible settings
 
@@ -75,6 +47,51 @@ fn_cookie_consent:
   form_action: $routeName # When set, xhr-Requests will only be sent to this route. Take care of having the route available.
   csrf_protection: true # The cookie consent form is csrf protected or not
   disabled_routes: ['privacy', 'imprint'] # defined controller route names where cookieConsent will not be shown by default
+```
+
+#### /config/routes/fn_cookie_consent.yaml
+
+When not using symfony flex, enable the bundles routing manually:
+
+```yaml
+fn_cookie_consent:
+  resource: '@FNCookieConsentBundle/Resources/config/routing.yaml'
+```
+
+### Step 3: Assets
+
+#### Bootstrap Style
+
+When enabled SassLoader in your webpack.config.js add the scss file from bootstrap to your project:
+
+```scss
+@import '~bootstrap/scss/bootstrap.scss';
+```
+
+#### Stimulus Controller
+
+Copy the stimulus controller from Resources/assets/controllers/cookie_consent_modal_controller.js to your controllers folder inside your application (usually /assets/controllers/cookie_consent_modal_controller.js)
+
+#### JS and CSS rebuild
+
+When you set new js oder style (css or scss) files you have to make a rebuild of your public assets
+
+```bash
+npm run dev
+```
+
+### Step 4: Database
+
+When using logger you have to make a migration file
+
+```bash
+php bin/console make:migration
+```
+
+After that you can migrate the changes
+
+```bash
+php bin/console doctrine:migration:migrate
 ```
 
 ## Usage
@@ -155,6 +172,15 @@ check if user has saved any cookie preferences
 
 ```twig
 {% if fncookieconsent_isCookieConsentSavedByUser() == true %}
+    ...
+{% endif %}
+```
+
+**fncookieconsent_isCookieConsentOpenByDefault**
+check if the modal view has to open for the user
+
+```twig
+{% if fncookieconsent_isCookieConsentOpenByDefault() == true %}
     ...
 {% endif %}
 ```
