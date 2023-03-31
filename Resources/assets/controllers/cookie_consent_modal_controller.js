@@ -13,6 +13,7 @@ export default class extends Controller {
 
     if (this.domElement) {
       this.buildModal()
+      this.eventFormSubmit()
     }
   }
 
@@ -32,5 +33,11 @@ export default class extends Controller {
 
   show() {
     this.bsModal.show()
+  }
+
+  eventFormSubmit() {
+    document.addEventListener('cookie-consent-form-submit-successful', (e) => {
+      this.bsModal.hide()
+    })
   }
 }

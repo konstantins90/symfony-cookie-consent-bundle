@@ -180,7 +180,7 @@ check if user has saved any cookie preferences
 check if the modal view has to open for the user
 
 ```twig
-{% if fncookieconsent_isCookieConsentOpenByDefault() == true %}
+{% if fncookieconsent_isCookieConsentOpenByDefault(string current_route, array disabled_routes) == true %}
     ...
 {% endif %}
 ```

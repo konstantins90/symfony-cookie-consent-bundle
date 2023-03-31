@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var cookieConsent = document.querySelector('.fn-cookie-consent')
   var cookieConsentForm = document.querySelector('.fn-cookie-consent__form')
   var cookieConsentFormBtn = document.querySelectorAll('.fn-cookie-consent__btn')
 
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
           xhr.onload = function () {
             if (xhr.status >= 200 && xhr.status < 300) {
-              cookieConsent.style.display = 'none'
               var buttonEvent = new CustomEvent('cookie-consent-form-submit-successful', {
                 detail: event.target,
               })
