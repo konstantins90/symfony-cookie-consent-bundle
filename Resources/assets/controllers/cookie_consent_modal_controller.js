@@ -2,9 +2,7 @@ import { Controller } from '@hotwired/stimulus'
 window.bootstrap = require('bootstrap')
 
 export default class extends Controller {
-  static values = {
-    open: Boolean,
-  }
+  static targets = ['open']
   static domElement
   static bsModal
 
@@ -18,7 +16,7 @@ export default class extends Controller {
   }
 
   connect() {
-    if (this.openValue === true) {
+    if (this.openTarget.dataset.fnOpen == 'true') {
       this.show()
     }
   }

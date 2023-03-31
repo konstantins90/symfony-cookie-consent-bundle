@@ -51,7 +51,7 @@ fn_cookie_consent:
 
 #### /config/routes/fn_cookie_consent.yaml
 
-When not using symfony flex, enable the bundles routing manually:
+When not using symfony flex, enable the bundles routing manually
 
 ```yaml
 fn_cookie_consent:
@@ -62,7 +62,7 @@ fn_cookie_consent:
 
 #### Bootstrap Style
 
-When enabled SassLoader in your webpack.config.js add the scss file from bootstrap to your project:
+When enabled SassLoader in your webpack.config.js add the scss file from bootstrap to your project
 
 ```scss
 @import '~bootstrap/scss/bootstrap.scss';
@@ -98,7 +98,7 @@ php bin/console doctrine:migration:migrate
 
 ### Twig implementation
 
-Load the cookie consent in Twig via render_esi ( to prevent caching ) at any place you like:
+Load the cookie consent in Twig via render_esi ( to prevent caching ) at any place you like
 
 ```twig
 {{ render_esi(path('fn_cookie_consent.show', {
@@ -107,7 +107,7 @@ Load the cookie consent in Twig via render_esi ( to prevent caching ) at any pla
 {{ render_esi(path('fn_cookie_consent.show_if_cookie_consent_not_set')) }}
 ```
 
-If you want to load the cookie consent with a specific locale you can pass the locale as a parameter:
+If you want to load the cookie consent with a specific locale you can pass the locale as a parameter
 
 ```twig
 {{ render_esi(path('fn_cookie_consent.show', {
@@ -119,7 +119,7 @@ If you want to load the cookie consent with a specific locale you can pass the l
 })) }}
 ```
 
-Instead of using render_esi() you can use the render() function:
+Instead of using render_esi() you can use the render() function
 
 ```twig
 {{ render(path('fn_cookie_consent.show', {
@@ -130,7 +130,15 @@ Instead of using render_esi() you can use the render() function:
 
 ### Stimulus implementation
 
-The stimulus controller is already used in Resources/assets/views/cookie_consent.html.twig. If you want you can set more links for opening the modal like this:
+The stimulus controller needs to implement eg. base.html.twig, make sure the modal is inner this controller
+
+```twig
+<div id="root" {{ stimulus_controller('cookie_consent_modal') }}>
+  {# ... #}
+</div>
+```
+
+You can set more links for opening the modal like this
 
 ```twig
 <a href="#" {{ stimulus_action('cookie_consent_modal', 'show') }}>Cookies</a>
@@ -138,7 +146,7 @@ The stimulus controller is already used in Resources/assets/views/cookie_consent
 
 ### Cookies
 
-When a user submits the form the preferences are saved as cookies. The cookies have a lifetime of 1 year. The following cookies are saved:
+When a user submits the form the preferences are saved as cookies. The cookies have a lifetime of 1 year. The following cookies are saved
 
 - **Cookie_Consent**: date of submit
 - **Cookie_Consent_Key**: Generated key as identifier to the submitted Cookie Consent of the user
@@ -156,10 +164,10 @@ AVG/GDPR requires all given cookie preferences of users to be explainable by the
 
 ### TwigExtension
 
-The following TwigExtension functions are available:
+The following TwigExtension functions are available
 
 **fncookieconsent_isCategoryAllowedByUser**
-check if user has given it's permission for certain cookie categories
+check if user has given it's permission for certain cookie categories (return bool)
 
 ```twig
 {% if fncookieconsent_isCategoryAllowedByUser('analytics') == true %}
@@ -168,7 +176,7 @@ check if user has given it's permission for certain cookie categories
 ```
 
 **fncookieconsent_isCookieConsentSavedByUser**
-check if user has saved any cookie preferences
+check if user has saved any cookie preferences (return bool)
 
 ```twig
 {% if fncookieconsent_isCookieConsentSavedByUser() == true %}
@@ -177,10 +185,10 @@ check if user has saved any cookie preferences
 ```
 
 **fncookieconsent_isCookieConsentOpenByDefault**
-check if the modal view has to open for the user
+check if the modal view has to open for the user (return string)
 
 ```twig
-{% if fncookieconsent_isCookieConsentOpenByDefault(string current_route, array disabled_routes) == true %}
+{% if fncookieconsent_isCookieConsentOpenByDefault(string current_route, array disabled_routes) == 'true' %}
     ...
 {% endif %}
 ```
